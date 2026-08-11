@@ -1,8 +1,7 @@
-import java.util.*;
-
-    
+   
 /* 
     Note: This questions are inherited for book Creacking the coding interview for only learning purpose.
+    
    1.1   Is Unique: Implement an algorithm to determine if a string has all unique characters.What if you
          cananot use additional data structure.
 
@@ -18,22 +17,22 @@ import java.util.*;
 */
 public class Main{
 
-    boolean isUniqueCahrs(String str){
-        if(str.length() > 128) return false;
+    static boolean isUniqueCahrs(String str) {
+        if (str == null || str.length() > 128) return false;
 
-        boolean[] char_set = new boolean[128];
-        for(int i = 0; i < str.length(); i++){
-            if(char_set[val]){
-                // already fount this char in string
+        boolean[] charSet = new boolean[128];
+        for (int i = 0; i < str.length(); i++) {
+            int val = str.charAt(i);
+            if (charSet[val]) {
+                // already found this char in string
                 return false;
             }
-            char_set[val] = true;
+            charSet[val] = true;
         }
         return true;
     }
-    public static void main(String []args){
 
-       
-
+    public static void main(String[] args) {
+        System.out.println(isUniqueCahrs("world"));
     }
 }
