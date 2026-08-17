@@ -17,8 +17,30 @@
  *        one charecter that is odd. This will cover both tha odd and thee even cases.
  *  This leads us to our first algorithm.
  *
- *    
+ *  
+ * 
+ * Real world Applications:
+ * 
+ * In real world The "Palindrome Permutation" problem maps directly to data cleaning, cryptography, and bio-informatics. The core logic check if a dataset can be arranged symmentrically 
+ * by verifying that at most one character has an odd frequency.
+ * 
+ * Data Deduplicatino & anonymization: 
+ *                                      Identifying user-generated text inputs that are structurelly identical despite cahracter reordering.
+ * Bioinformatics(DNA Sequesce Analysis):
+ *                                       Detecting inverted repeats or Palindromic molecular structures in genetic ssequenses, which  indecate specific binding site.
+ * Text Analytics & Natural Language Processing(NLP): Standerdizing serch queries or processing text where latter order is scramled but composition matters
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ *   
  * */
+
+
+
 
 // Solution #1
 // Implementing this algorithm is fairly straightforward. We use a hash table to count how many times each character appears. Then, we iterate through teh hase table and ensure that no more one character has an odd count.
