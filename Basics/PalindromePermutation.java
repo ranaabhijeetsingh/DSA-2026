@@ -94,6 +94,30 @@ public class PalindromePermutation{
         return checkMaxOneOdd(table);
     }
 
+
+// Solution #2 We can't optimize the bigO time here since any algorithm will always have to look through the entire string.
+// However, we can make some smaller incremental improvements. Because this is a relatively simple problem.
+//  It can be worthwhile to discuss some small optimizations or at least some tweaks.
+// Instead of checking the number of odd counts at the end, we can check as we go along.Then, as soon as we get to the end , we have our answer.
+
+static boolean isPermutationOfPalindromeOptimized(String phrase){
+    int countOdd = 0;
+    int[] table = new int[Character.getNumericValue('z') - Character.getNumericValue('a') + 1];
+
+    for(char c: phrase.toCharArray()){
+        int x = getCharNumber(c);
+        if(x != -1){
+            table[x]++;
+            if(table[x]%2 ==1){
+                countOdd++;
+            }else{
+                countOdd--;
+            }
+        }
+        
+    }
+    
+}
     public static void main(String[] args){
         System.out.println("palindromePermutation");
 
