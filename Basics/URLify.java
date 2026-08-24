@@ -119,5 +119,6 @@ public class URLify{
         URLify urlify = new URLify();
         urlify.replaceSpaces(str, input.length());
         System.out.println(new String(str).trim());
+        
     }
 }
