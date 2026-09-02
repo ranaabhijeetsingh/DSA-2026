@@ -50,6 +50,6 @@ class StringCompression {
         System.out.println("Compressed String: " + sc.compress(str));
     }
 }
-
+// Compressed String: a3b2d3e2s2
 
 
