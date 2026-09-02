@@ -158,3 +158,70 @@ print(is_one_away("pale", "bake"))   # False (Two replacements needed)
 
 
 ```
+
+##### 1.6 : String Compression: 
+                                Implement a method to perform basic string compression using the counts of repeated characters. e.g-->The Stirng aabcccccaaaa would become a2bc5a4.
+                                If the 'Compression' Stirng would not become smaller than the orignal String, your method sould return the orignal string.
+                                You can assume the string has only uppercase and lowercase latter(a-z).
+
+##### Soulution:
+                At first glance, implementing this method seems fairly straighforward, but perhaps a bit tedious. We iterate through the string, copying characters to a new string and counting the repeats. At each iteration, check if the current character is the same as the next character.If not , add its compressed version to the result.
+```java
+    String Compressed(String str){
+        String compressedString = "";
+        int countConsecutive = 0;
+        for(int i = 0; i< str.length; i++){
+            countConsecutive++;
+
+
+              // if next character is diffrent than current, append this char to result.
+            if(i+1 >= str.lenght()  || str.charAt(i) != str.charAt(i+1)){
+                compressedString += "" + str.charAt(i) + countSonsecutive; // This take 0(p + k^2) time. where p-->size of orignal string, k--> is the number of character sequesnces. 
+                countConsecutive = 0;
+            }
+        }
+        return cpmpressedStirng.length() < str.length() ? compressedString: str;
+    }
+    // ------------------------------------------------------------------------------
+        //----------------------------- Optimize soulution:
+
+    public class StringCompression{
+
+        String compress(String str){
+            StringBuilder compressedStr = new StringBuilder();
+
+            int i = 1;
+            int count = 1;
+            compressedStr.append(chars[0]);
+
+            while(i < char.length){
+                if(chars[i] == chars[i-1]){
+                    count++;
+                }else{
+                    if(count > 1){
+                        compressedStr.append(count);
+                    }
+                    compressedStr.append(chars[i]);
+                    count = 1;
+                }
+
+                i++;
+            }
+            if(count > 1){
+                compressedStr.append(count);
+            }
+            for(int j = 0; j<compressedStr.lenght(); j++){
+                chars[j] = compressedStr.charAt(j);
+            }
+
+        return comressedStr.length();
+        }
+
+        
+        public static void main(Stirng[] args){
+
+
+
+        }
+    }
+```
