@@ -283,3 +283,81 @@ print(is_one_away("pale", "bake"))   # False (Two replacements needed)
 
 
 ```
+
+#### 1.7 :
+ Rotate Matrix: Given in image represented by an NxN matrix, where each pixel in the image is bytes, write a method to rotate a metho to rotate the image by 90 degrees. Can you do this in place?
+
+#### Solution:
+###The Real-World Problem
+- When you take a photo on your smartphone in portrait mode but look at it in landscape, your phone must rotate the image.
+- In computer memory, a digital image is just a 2D grid of pixels (a matrix). Each pixel holds color data (bytes). Rotating a photo 90 degrees clockwise means shifting every pixel to a new coordinate in that grid.
+- Beyond photo apps, this concept is vital in:
+1. Computer Vision: Rotating camera feeds for AI model processing.2. Game Development: Rotating 2D tilemaps, sprites, or game grids (like Tetris).
+3. Satellite Imaging: Aligning geographical map data.
+
+### The Concept Behind the Scenes (Made Easy)
+Instead of trying to move every number to its final spot in one confusing leap, we break it down into two simple steps:
+- Transpose the Matrix: Turn all rows into columns. You do this by swapping elements across the main diagonal (top-left to bottom-right).
+- Reverse the Rows: Flip each row horizontally from left to right.
+### Visual Example (3x3 Matrix)
+    Original Grid:
+        [1, 2, 3]
+        [4, 5, 6]
+        [7, 8, 9]
+    Step 1: Transpose(swap matrix[i][j] with matrix[j][i])
+        [1, 4, 7]
+        [2, 5, 8]
+        [3, 6, 9]
+    Step 2: Reversh Rows(Flip left to right)
+        [7, 4, 1]
+        [8, 5, 2]
+        [9, 6, 3]
+
+```python
+
+def rotate_image(matrix):
+    n = len(matrix)
+    
+    # Step 1: Transpose the matrix in-place
+    for i in range(n):
+        for j in range(i + 1, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            
+    # Step 2: Reverse each row in-place
+    for i in range(n):
+        matrix[i].reverse()
+
+
+```
+java version:
+```java
+    public class MatrixRotation {
+    public static void rotate(int[][] matrix) {
+        int n = matrix.length;
+
+        // Step 1: Transpose (रो और कॉलम को आपस में बदलें)
+        for (int i = 0; i < n; i++) {
+            // j = i + 1 से शुरू होता है ताकि डायगोनल के नीचे के एलिमेंट्स दोबारा स्वैप न हों
+            for (int j = i + 1; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        // Step 2: Reverse Rows (हर रो को बाएं से दाएं उल्टा करें)
+        for (int i = 0; i < n; i++) {
+            int left = 0;
+            int right = n - 1;
+            while (left < right) {
+                int temp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = temp;
+                
+                left++;
+                right--;
+            }
+        }
+    }
+}
+
+```
