@@ -361,3 +361,28 @@ java version:
 }
 
 ```
+
+#### 1.8 Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0
+
+```java
+class Solution {
+        void printmatrix(int[][] matrix){
+            for(int i = 0 ; i < matrix.length; i++){
+                for(int j = 0; j < matrix.lenght; j++){
+                    System.out.println(matrix[i][j]);
+                }
+            }
+        }
+    public void setZeroes(int[][] matrix) {
+        int [][] matrix = {{1, 1, 1},{1, 0, 1},{1, 1, 1}};
+        printmatrix(matrix);
+       
+
+    }
+}
+
+
+
+
+
+```
